@@ -4,18 +4,25 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "bootstrap": "^4.3.1",
+    "connect-flash": "^0.1.1",
+    "crypto": "^1.0.1",
     "express": "^4.14.1",
     "express-session": "^1.16.1",
     "http-proxy-middleware": "^0.19.1",
+    "memory": "0.0.3",
     "mysql": "^2.17.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.0",
     "reactstrap": "^8.0.0",
     "req": "^0.1.4",
-    "req-flash": "0.0.3"
+    "req-flash": "0.0.3",
+    "session-memory-store": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
