@@ -37,7 +37,7 @@ class NavigationComponent extends React.Component
 
           <div className="NavBar">
             <Navbar color="light" light expand="md">
-              <NavbarBrand href="/">SportsPromo</NavbarBrand>
+              <NavbarBrand href="/">===</NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
@@ -45,10 +45,10 @@ class NavigationComponent extends React.Component
                     <NavLink href="/About">About</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="">Leagues</NavLink>
+                    <NavLink href="">Link 1 </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/">Teams</NavLink>
+                    <NavLink href="/">Link 2 </NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="/Register">Register</NavLink>

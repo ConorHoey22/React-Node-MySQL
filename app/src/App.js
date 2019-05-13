@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import NavigationComponent from './components/NavigationComponent';
 //import WelcomeComponent from './components/WelcomeComponent';
 import RegisterComponent from './components/views/RegisterComponent';
-//import LoginComponent from './components/views/LoginComponent';
+import LoginComponent from './components/views/LoginComponent';
 //import About from './components/views/About';
 //import Dashboard from './components/views/Dashboard';
 
@@ -27,7 +27,6 @@ class App extends React.Component
   constructor(props) {
     super(props);
   
-
   }
 
   
@@ -47,8 +46,8 @@ class App extends React.Component
            <Switch>
                {/* <Route exact path="/" component={WelcomeComponent} /> */}
                {/* <Route path="/About" component={About} /> */}
-            {/* <Route path="/Login"   component={LoginComponent} /> */}
-               <Route path="/Register"  component={RegisterComponent} />
+             <Route path="/Login"   component={LoginComponent} />
+             <Route path="/Register"  component={RegisterComponent} />
                {/* <Route path="/Dashboard"  component={Dashboard} /> */}
                
            </Switch>

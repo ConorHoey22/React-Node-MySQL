@@ -7,9 +7,9 @@ class RegisterComponent extends React.Component {
 
     this.state = {
       username: '',
-      email:'',
+      //email:'',
       password:'',
-      location:'',
+      //location:'',
       
       };
       
@@ -20,10 +20,10 @@ class RegisterComponent extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const data = { username:this.state.username, email:this.state.email , password:this.state.password  , location:this.state.location}
-
+    //const data = { username:this.state.username, email:this.state.email , password:this.state.password  , location:this.state.location}
+    const data = { username:this.state.username , password:this.state.password}
     //Fetch API Post method
-      fetch('/api/createAccount', { method: 'POST', 
+      fetch('/api/signup', { method: 'POST', 
       body: JSON.stringify(data), // data can be `string` or {object}!
       headers:{ 'Content-Type': 'application/json' } })
       .then(res => res.json())
@@ -46,33 +46,33 @@ class RegisterComponent extends React.Component {
   };
 
   //Username - Input Validation   
-  validateUsername = () => {
+    validateUsername = () => {
     const { username } = this.state;
     this.setState({
-      usernameError:
+     usernameError:
         username.length > 3 ? null : 'Your username must be longer than 3 characters'
     });
 
   }
 
    //Email - User Form handling
-   handleEmailChange = event => {
-    this.setState({
-      email: event.target.value}, () => {
-        this.validateEmail();
+ //  handleEmailChange = event => {
+   // this.setState({
+     // email: event.target.value}, () => {
+       // this.validateEmail();
       
-    });
-  };
+  //  });
+  //};
 
   //Email - Input Validation   
-  validateEmail = () => {
-    const { email } = this.state;
-    this.setState({
-      emailError:
-        email.length > 3 ? null : 'Your email address must be longer than 3 characters and contain an @ symbol'
-    });
+  //validateEmail = () => {
+    //const { email } = this.state;
+    //this.setState({
+     // emailError:
+      //  email.length > 3 ? null : 'Your email address must be longer than 3 characters and contain an @ symbol'
+   // });
 
-  }
+  //}
 
   
   //Password - User Form handling
@@ -94,24 +94,24 @@ class RegisterComponent extends React.Component {
 
   }
 
-  //Email - User Form handling
-  handleLocationChange = event => {
-    this.setState({
-      location: event.target.value}, () => {
-        this.validateLocation();
+  //Location - User Form handling
+  //handleLocationChange = event => {
+    //this.setState({
+      //location: event.target.value}, () => {
+       // this.validateLocation();
       
-    });
-  };
+   // });
+ // };
 
-  //Email - Input Validation   
-  validateLocation = () => {
-    const { location } = this.state;
-    this.setState({
-      locationError:
-        location.length > 1 ? null : 'Your  must be longer than 1 characters'
-    });
+  //Location - Input Validation   
+ // validateLocation = () => {
+   // const { location } = this.state;
+   // this.setState({
+     // locationError:
+      //  location.length > 1 ? null : 'Your  must be longer than 1 characters'
+   // });
 
-  }
+//  }
 
 
 
@@ -123,8 +123,7 @@ class RegisterComponent extends React.Component {
     return (
 
      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="username">Enter your username</label>
-
+         <label htmlFor="username">Enter your username</label> 
         <input 
         id="username" 
         className={`form-control ${this.state.usernameError ? 'is-invalid' : ''}`} 
@@ -132,9 +131,9 @@ class RegisterComponent extends React.Component {
         onChange={this.handleUsernameChange} 
         onBlur={this.validateUsername} required/>
         <div className='invalid-feedback'>{this.state.usernameError}</div>
-        <br></br>
+        <br></br> 
 
-        <label htmlFor="email">Enter your email</label>
+        {/* <label htmlFor="email">Enter your email</label> 
 
         <input id="email" 
          className={`form-control ${this.state.emailError ? 'is-invalid' : ''}`} 
@@ -142,7 +141,7 @@ class RegisterComponent extends React.Component {
          onChange={this.handleEmailChange}
          onBlur={this.validateEmail}  required/>
         <div className='invalid-feedback'>{this.state.emailError}</div>
-        <br></br>
+    <br></br> */}
 
         <label htmlFor="password">Enter your password</label>
 
@@ -153,16 +152,16 @@ class RegisterComponent extends React.Component {
         className={`form-control ${this.state.passwordError ? 'is-invalid' : ''}`} required/>
         <div className='invalid-feedback'>{this.state.passwordError}</div>
 
-        <label htmlFor="location">Enter your location</label>
+        {/* <label htmlFor="location">Enter your location</label> */}
 
-        <input 
+        {/* <input  
         id="location" 
         className={`form-control ${this.state.locationError ? 'is-invalid' : ''}`} 
         type="text" 
         onChange={this.handleLocationChange} 
         onBlur={this.validateLocation} required/>
         <div className='invalid-feedback'>{this.state.locationError}</div>
-        <br></br>
+        <br></br> */}
 
 
         <br></br>
