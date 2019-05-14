@@ -2,6 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 
+var sess              = require('express-session');
+//var Store             = require('express-session').Store;
+var BetterMemoryStore = require('session-memory-store')(sess);
+
+
+
 const app = express();
 app.use(bodyParser.json())
 
@@ -15,16 +21,12 @@ var passport_config = config(passport);
 
 var LocalStrategy     = require('passport-local').Strategy;
 
-var sess              = require('express-session');
-var Store             = require('express-session').Store;
-var BetterMemoryStore = require('session-memory-store')(sess);
+
 const bcrypt = require('bcrypt');
 
 
 
 app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
@@ -49,13 +51,21 @@ var mysql = require('mysql');
   
 
   var store = new BetterMemoryStore({ expires: 60 * 60 * 1000, debug: true });
-  app.use(sess({
-     name: 'JSESSION',
-     secret: 'MYSECRETISVERYSECRET',
-     store:  store,
-     resave: true,
-     saveUninitialized: true
- }));
+
+    
+
+    app.use(sess({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: true }
+    }))
+
+
+
+ app.use(passport.initialize());
+app.use(passport.session());
+
 
   app.use(cors());
 
